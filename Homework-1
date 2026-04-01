@@ -1,0 +1,29 @@
+import pygame
+import random
+
+
+
+screen = pygame.display.set_mode((400, 300))
+pygame.display.set_caption("Marks")
+
+
+marks = [random.randint(0, 100) for _ in range(20)]
+
+
+low = [m for m in marks if m <= 30]
+mid = [m for m in marks if m <= 69 and m > 30]
+high = [m for m in marks if m >= 70]
+
+print("Marks:", marks)
+print("<=30:", low)
+print("31-69:", mid)
+print(">=70:", high)
+
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
